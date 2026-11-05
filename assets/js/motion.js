@@ -1,7 +1,7 @@
 // Repeat reveal transitions on every viewport entry, including scrolling back up.
 // No external dependencies; reduced-motion users receive static content.
 (() => {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  if (!('IntersectionObserver' in window)) return;
 
   const targets = document.querySelectorAll(
     '.hero > *, .section-header, .section-head, .premium-section > .eyebrow, .premium-section > h2, .premium-section > p, .split-section, .contact-section > .button, .card, .prose > h1, .prose > .lead, .prose > h2, .prose > p, .prose > ul, .prose > pre, .prose > .notice, .prose > .system-diagram, .prose > .tags'

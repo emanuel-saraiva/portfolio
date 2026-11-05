@@ -1,7 +1,5 @@
 
 (() => {
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduced) return;
   const wireOnePacket = document.querySelector('.wire-one .packet');
   const wireTwoPacket = document.querySelector('.wire-two .packet');
   const stageTransform = document.getElementById('stage-transform');

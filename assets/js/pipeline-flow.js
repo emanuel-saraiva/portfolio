@@ -4,7 +4,6 @@
   const stages = ['stage-sources', 'stage-transform', 'stage-analytics'].map(id => document.getElementById(id));
   if (stages.some(stage => !stage)) return;
 
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const NS = 'http://www.w3.org/2000/svg';
   const svg = document.createElementNS(NS, 'svg');
   svg.classList.add('pipeline-flow-overlay');
@@ -137,10 +136,6 @@
     frameId=requestAnimationFrame(draw);
   }
 
-  if (reduced) {
-    stages.forEach(stage=>stage.classList.add('is-flow-active'));
-    return;
-  }
   rebuild();
   if ('ResizeObserver' in window) new ResizeObserver(rebuild).observe(visual);
   else window.addEventListener('resize',rebuild,{passive:true});
